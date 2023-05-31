@@ -3,6 +3,7 @@ import openai
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 text_input = input("文章を入力してください")
+print("API受付しました")
 response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
@@ -24,12 +25,12 @@ response = openai.ChatCompletion.create(
     ],
     temperature=1
 )
-
 result = response.choices[0]["message"]["content"].strip()
+print(result)
 response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "user", "content": f"{result}に対して読みやすいように改行をおこなって出力してください"} 
+        {"role": "user", "content": f"{result}に対して読みやすいように改行をおこなって出力してください。 駅や路線名、建築物,人物名などは除外してください wikipediaのリンクは表示してください"} 
     ],
     temperature=1
 )

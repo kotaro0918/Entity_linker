@@ -23,7 +23,7 @@ response = openai.ChatCompletion.create(
         根室-市-根室市 https://ja.wikipedia.org/wiki/根室市\
         札幌-市-札幌市 https://ja.wikipedia.org/wiki/札幌市    のように読みやすいように改行してください"}     
     ],
-    temperature=1
+    temperature=0
 )
 result = response.choices[0]["message"]["content"].strip()
 print(result)
@@ -32,7 +32,7 @@ response = openai.ChatCompletion.create(
     messages=[
         {"role": "user", "content": f"{result}に対して読みやすいように改行をおこなって出力してください。 駅や路線名、建築物,人物名などは除外してください wikipediaのリンクは表示してください"} 
     ],
-    temperature=1
+    temperature=0
 )
 
 print(response.choices[0]["message"]["content"].strip())

@@ -1,15 +1,8 @@
-# vscode-devcontainer-python-base
+# VSCode を用いたエンティティリンキング
 
-vscode で dev container を使って python の開発をするためのテンプレート(素)
-
-### 事前準備
-
-- vscode に拡張 "Remote Development" をインストールしておく
-- Docker Desktop をインストールして起動しておく
-
+vscode を用いてテキストの中の都道府県名と市町村名にエンティティリンキングを行う
 ### 使い方
 
-1. プロジェクト始める（プログラムを書き始める）時、このレポジトリテンプレートからプロジェクト名のレポジトリを作成する。
 1. 作成したレポジトリをローカル環境（PC）上に clone する。
 1. ローカルのレポジトリで vscode を開く
 
@@ -17,20 +10,14 @@ vscode で dev container を使って python の開発をするためのテン�
 code ディレクトリ
 ```
 
-4. vscode 左下の `><` こんなアイコンをクリックして `Reopen in container` を選択すると、python が実行可能なコンテナ内で vscode が開かれる
-5. コンテナ内でプロジェクトが開かれているときは 左下の領域は `>< Dev Container: プロジェクト名` のようになっているので、時々確認すること。
-6. プログラムを書く
-7. 書いたプログラムを確認してもらうときは、そのレポジトリ/ブランチを push するなり、PR をだすと、確認者はそのレポジトリ/ブランチを使ってすぐに動作確認ができる。
-8. コンテナ内での作業を終えるときは `><` から `Reopne folder localy` を選択する。作業してないときは Docker Desktop は終了しておく（無駄に PC 上の領域を専有するため）。
+3. vscode 左下の `><` こんなアイコンをクリックして `Reopen in container` を選択して、python が実行可能なコンテナ内で vscode を開く
 
-### その他
+4. vscode でentity_linker.py を実行した後、ターミナル内に好きな文章を入力する
 
-#### ライブラリを追加する時
-
-- requirements.txt を編集して（追加するライブラリ名、バージョンを書く。例えば ↓）
-
+5. 結果が
 ```
-geojson==3.0.1
+埼玉県-都道府県-埼玉県 https://ja.wikipedia.org/wiki/埼玉県        三郷市-市-三郷市 https://ja.wikipedia.org/wiki/三郷市
 ```
+のように出力される
 
-- `><` アイコンをクリックして、`Rebuild Container` を選択する。vscode が再度開かれると、ライブラリが利用可能になっている。
+

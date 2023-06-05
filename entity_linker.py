@@ -16,12 +16,8 @@ response = openai.ChatCompletion.create(
         釧路-市-釧路市 https://ja.wikipedia.org/wiki/釧路市\
         根室-市-根室市 https://ja.wikipedia.org/wiki/根室市\
         札幌-市-札幌市 https://ja.wikipedia.org/wiki/札幌市"},
-        {"role": "user", "content": f"{text_input}に対して上のようにエンティティリンキングを行なってください。この際、属性が都道府県名と市町村名であるもののみ対象であることに気をつけてください\
-         出力結果は\
-        帯広-市-帯広市 https://ja.wikipedia.org/wiki/帯広市\
-        釧路-市-釧路市 https://ja.wikipedia.org/wiki/釧路市\
-        根室-市-根室市 https://ja.wikipedia.org/wiki/根室市\
-        札幌-市-札幌市 https://ja.wikipedia.org/wiki/札幌市    のように読みやすいように改行してください"}     
+        {"role": "user", "content": f"{text_input}に対して上のようにエンティティリンキングを行なってください。この際、対象は都道府県と市町村名です\
+         出力結果は"}     
     ],
     temperature=0
 )
@@ -30,7 +26,7 @@ print(result)
 response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "user", "content": f"{result}に対して読みやすいように改行をおこなって出力してください。 駅や路線名、建築物,人物名などは除外してください wikipediaのリンクは表示してください"} 
+        {"role": "user", "content": f"{result}に対して読みやすいように改行をおこなって出力してください。wikipediaのリンクは表示してください"} 
     ],
     temperature=0
 )
